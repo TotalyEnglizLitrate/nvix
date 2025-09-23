@@ -39,7 +39,7 @@ let
 in
 {
   packages = {
-    default = self'.packages.core;
+    default = self'.packages.full;
     bare = mkNixvim bareModules;
     core = mkNixvim coreModules;
     full = mkNixvim fullModules;

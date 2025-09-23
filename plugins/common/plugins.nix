@@ -1,11 +1,23 @@
-{ pkgs, config, ... }:
-let
-  inherit (config.nvix.mkKey) mkKeymap;
-in
 {
-  extraPlugins = with pkgs.vimPlugins; [ stay-centered-nvim ];
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.nvix.mkKey) mkKeymap;
+in {
+  extraPlugins = with pkgs.vimPlugins; [
+    stay-centered-nvim
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "org-bullets";
+      src = pkgs.fetchFromGitHub {
+        owner = "nvim-orgmode";
+        repo = "org-bullets.nvim";
+        rev = "21437cfa99c70f2c18977bffd423f912a7b832ea";
+        hash = "sha256-/l8IfvVSPK7pt3Or39+uenryTM5aBvyJZX5trKNh0X0=";
+      };
+    })
+  ];
   plugins = {
-    # Must have plugins to have a decent flow of work
     comment = {
       enable = true;
       settings = {
@@ -13,20 +25,30 @@ in
         opleader.line = "<leader>/";
       };
     };
-    tmux-navigator.enable = true;
-    smart-splits.enable = true;
-    web-devicons.enable = true;
-    nvim-surround.enable = true;
-    nvim-autopairs.enable = true;
-    trim.enable = true;
-    lz-n.enable = true;
+
     flash = {
       enable = true;
       settings = {
         modes.char.enabled = false;
       };
     };
+
+    orgmode = {
+      enable = true;
+      settings = {
+        org_agenda_files = "~/org/agenda/*";
+        org_default_notes_file = "~/org/refile.org";
+      };
+    };
+
+    cord.enable = true;
+    lz-n.enable = true;
+    nvim-autopairs.enable = true;
+    nvim-surround.enable = true;
+    smart-splits.enable = true;
+    trim.enable = true;
     visual-multi.enable = true;
+    web-devicons.enable = true;
     which-key = {
       enable = true;
       settings.spec = config.wKeyList;

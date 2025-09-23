@@ -1,5 +1,8 @@
-{ lib, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   # Combine mapAttrs' and filterAttrs
   #
   # f can return null if the attribute should be filtered out.
@@ -10,20 +13,23 @@ let
       builtins.listToAttrs
     ];
   forAllNixFiles = dir: f:
-    if builtins.pathExists dir then
+    if builtins.pathExists dir
+    then
       lib.pipe dir [
         builtins.readDir
-        (mapAttrsMaybe (fn: type:
-          if type == "regular" then
-            let name = lib.removeSuffix ".nix" fn; in
-            lib.nameValuePair name (f "${dir}/${fn}")
-          else if type == "directory" && builtins.pathExists "${dir}/${fn}/default.nix" then
-            lib.nameValuePair fn (f "${dir}/${fn}")
-          else
-            null
+        (mapAttrsMaybe (
+          fn: type:
+            if type == "regular"
+            then let
+              name = lib.removeSuffix ".nix" fn;
+            in
+              lib.nameValuePair name (f "${dir}/${fn}")
+            else if type == "directory" && builtins.pathExists "${dir}/${fn}/default.nix"
+            then lib.nameValuePair fn (f "${dir}/${fn}")
+            else null
         ))
-      ] else { };
-in
-{
+      ]
+    else {};
+in {
   flake.nvixPlugins = forAllNixFiles ./. (fn: fn);
 }
