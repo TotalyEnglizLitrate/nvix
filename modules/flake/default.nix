@@ -1,9 +1,6 @@
 { inputs, self, ... }:
 {
   debug = true;
-  imports = [
-    ./devshell.nix
-  ];
   perSystem = { lib, system, ... }: {
     # Make our overlay available to the devShell
     # "Flake parts does not yet come with an endorsed module that initializes the pkgs argument.""
