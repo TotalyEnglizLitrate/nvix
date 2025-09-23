@@ -1,11 +1,11 @@
-<p align="center" style="color:grey">
+# Nvix (Fork)
 
-![image](https://github.com/niksingh710/nvix/assets/60490474/89503d51-ca86-4933-872f-3f60c32202a9)
+**Note: This is a personal fork of the original Nvix project. For the official, maintained version, please use the upstream repository instead:**
 
-<div align="center">
-<table>
-<tbody>
-<td align="center">
+- **Upstream Repository:** [github.com/niksingh710/nvix](https://github.com/niksingh710/nvix)
+- **Recommended Usage:** Use the upstream for the latest features, updates, and community support.
+
+This fork may contain personal modifications and is not officially maintained. Refer to the upstream for documentation, installation, and usage instructions.
 <img width="2000" height="0"><br>
 
 ##### `"This configuration is modular by design—if you love a part of it, grab that slice, plug it into your Nixvim config, and roll with it!"`
