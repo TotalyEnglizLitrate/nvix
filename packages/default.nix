@@ -31,7 +31,7 @@ let
 
     # Productivity
     self.nvixPlugins.autosession
-    self.nvixPlugins.ai
+    self.nvixPlugins.copilot
   ];
   fullModules = coreModules ++ [
     self.nvixPlugins.tex
