@@ -1,31 +1,23 @@
-{ config, ... }:
-{
-  colorschemes = {
-    catppuccin = {
-      enable = true;
-      settings = {
-        flavor = "mocha";
-        italic = true;
-        bold = true;
-        dimInactive = false;
-        transparent_background = true;
-      };
-    };
-  };
-
+{config, ...}: {
   colorschemes.tokyonight = {
-    enable = false;
+    enable = true;
     settings = {
       style = "night";
       transparent = config.nvix.transparent;
       styles = {
-        floats = if config.nvix.transparent then "transparent" else "dark";
-        sidebars = if config.nvix.transparent then "transparent" else "dark";
+        floats =
+          if config.nvix.transparent
+          then "transparent"
+          else "dark";
+        sidebars =
+          if config.nvix.transparent
+          then "transparent"
+          else "dark";
         comments.italic = true;
-        functions.italic = true;
-        variables.italic = true;
+        functions.italic = false;
+        variables.italic = false;
         keywords = {
-          italic = true;
+          italic = false;
           bold = true;
         };
       };
