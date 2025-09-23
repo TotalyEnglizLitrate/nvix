@@ -17,6 +17,8 @@ in {
       };
     })
   ];
+  extraConfigLua = "require('org-bullets').setup()";
+
   plugins = {
     comment = {
       enable = true;
