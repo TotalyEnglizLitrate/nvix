@@ -25,7 +25,7 @@ in {
     (mkKeymap "n" "<leader>ac"
       (
         mkRaw # lua
-        
+
         ''
           function()
             if vim.g.copilot_status == nil then
@@ -43,15 +43,11 @@ in {
       ) "Toggle Copilot")
 
     (mkKeymap "n" "<leader>a" "<cmd>CopilotChat<CR>" "Copilot Chat")
-    (mkKeymap ["n" "v"] "<leader>ae" "<cmd>CopilotChatEditWithInstruction<CR>" "Edit with instruction")
-    (mkKeymap ["n" "v"] "<leader>ag" "<cmd>CopilotChatRun grammar_correction<CR>" "Grammar Correction")
-    (mkKeymap ["n" "v"] "<leader>at" "<cmd>CopilotChatRun translate<CR>" "Translate")
-    (mkKeymap ["n" "v"] "<leader>ak" "<cmd>CopilotChatRun keywords<CR>" "Keywords")
-    (mkKeymap ["n" "v"] "<leader>ad" "<cmd>CopilotChatRun docstring<CR>" "Docstring")
-    (mkKeymap ["n" "v"] "<leader>aa" "<cmd>CopilotChatRun add_tests<CR>" "Add Tests")
-    (mkKeymap ["n" "v"] "<leader>ao" "<cmd>CopilotChatRun optimize_code<CR>" "Optimize Code")
-    (mkKeymap ["n" "v"] "<leader>af" "<cmd>CopilotChatRun fix_bugs<CR>" "Fix Bugs")
-    (mkKeymap ["n" "v"] "<leader>ax" "<cmd>CopilotChatRun explain_code<CR>" "Explain Code")
-    (mkKeymap ["n" "v"] "<leader>al" "<cmd>CopilotChatRun code_readability_analysis<CR>" "Code Readability Analysis")
+    (mkKeymap ["n" "v"] "<leader>ad" "<cmd>CopilotChatDocs<CR>" "Docstring")
+    (mkKeymap ["n" "v"] "<leader>at" "<cmd>CopilotChatTests<CR>" "Add Tests")
+    (mkKeymap ["n" "v"] "<leader>ao" "<cmd>CopilotChatOptimize<CR>" "Optimize Code")
+    (mkKeymap ["n" "v"] "<leader>af" "<cmd>CopilotChatFix<CR>" "Fix Bugs")
+    (mkKeymap ["n" "v"] "<leader>ax" "<cmd>CopilotChatExplain<CR>" "Explain Code")
+    (mkKeymap ["n" "v"] "<leader>al" "<cmd>CopilotChatReview<CR>" "Code Readability Analysis")
   ];
 }
