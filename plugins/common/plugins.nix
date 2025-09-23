@@ -40,6 +40,7 @@ in {
       settings = {
         org_agenda_files = "~/org/agenda/*";
         org_default_notes_file = "~/org/refile.org";
+        org_startup_folded = "showeverything";
       };
     };
 
