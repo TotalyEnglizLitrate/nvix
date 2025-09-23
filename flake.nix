@@ -1,5 +1,5 @@
 {
-  description = "Nikhil's NixOs / nix-darwin configuration";
+  description = "My nixvim configuration built on top of nvix";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";
