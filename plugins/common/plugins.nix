@@ -16,8 +16,20 @@ in {
         hash = "sha256-/l8IfvVSPK7pt3Or39+uenryTM5aBvyJZX5trKNh0X0=";
       };
     })
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "emojify";
+      src = pkgs.fetchFromGitHub {
+        owner = "ronisbr";
+        repo = "Emojify.nvim";
+        rev = "6bf0f3f33443833fc8f3fb56a87cbcac7ef970e0";
+        hash = "sha256-U9pd0K9NhAMX3J/F6xudI1wand7sOrVNrqCmSOkps+Y=";
+      };
+     })
   ];
-  extraConfigLua = "require('org-bullets').setup()";
+  extraConfigLua = ''
+    require('org-bullets').setup()
+    require('emojify').setup()
+  '';
 
   plugins = {
     comment = {
