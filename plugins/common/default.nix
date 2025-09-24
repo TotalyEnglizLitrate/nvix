@@ -41,7 +41,6 @@ in
 
 
       vim.opt.whichwrap:append("<>[]hl")
-      vim.opt.listchars:append("space:·")
 
       -- below part set's the Diagnostic icons/colors
       local signs = {
