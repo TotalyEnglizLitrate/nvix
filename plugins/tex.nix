@@ -12,7 +12,7 @@ in
     };
   };
 
-  extraPackages = [ pkgs.python313Packages.pylatexenc ];
+  extraPackages = with pkgs; [ python313Packages.pylatexenc texliveFull pandoc];
   extraConfigLuaPre = ''
     vim.g.vimtex_compiler_latexmk = {
       aux_dir = ".build" -- you can set here whatever name you desire
