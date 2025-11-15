@@ -188,9 +188,6 @@ in {
     imagemagick
     ghostscript_headless
     tectonic
-    (mermaid-cli.override {
-      chromium = pkgs.chromium;
-    })
     dwt1-shell-color-scripts
   ]; # for image support
 
